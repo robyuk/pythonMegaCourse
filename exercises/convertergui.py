@@ -18,6 +18,10 @@ while True:
     match event:
         case "Convert":
             # print(values)
+            if values["feet"] == '' or values["inches"] == ''\
+                    or not (values["feet"].isdecimal() and values["inches"].isdecimal()):
+                Gui.Popup("Please provide numbers for feet and inches")
+                continue
             message = str(convert(values)) + "m"
             # print(message)
             window["message"].update(value=message)
